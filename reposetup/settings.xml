@@ -1,0 +1,52 @@
+<settings>
+  <!-- omitted xml -->
+  <servers>
+    <server>
+      <id>archiva.internal</id>
+      <username>guest</username>
+      <password></password>
+    </server>
+    <server>
+      <id>archiva.snapshots</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.common</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.plugin</id>
+      <username>guest</username>
+      <password></password>
+    </server>
+    <server>
+      <id>archiva.snw</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.prt</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.tej</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.gradle</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <server>
+      <id>archiva.snwandroid</id>
+      <username>admin</username>
+      <password>rjil@1234</password>
+    </server>
+    <!-- omitted xml -->
+  </servers>
+  <!-- omitted xml -->
+</settings>

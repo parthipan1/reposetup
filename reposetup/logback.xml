@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+    	<useJansi>true</useJansi>
+        <encoder>
+        	<charset>UTF-8</charset>
+	      <pattern>[%thread] %highlight(%-5level) %cyan(%logger{15}) - %magenta(%msg) %n</pattern>
+	    </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/Users/parthipangounder/Documents/workspace/switchnwalktesting/reposetup/reposetup.html</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover. Make sure the path matches the one in the file element or else
+             the rollover logs are placed in the working directory. -->
+            <fileNamePattern>/Users/parthipangounder/Documents/workspace/switchnwalktesting/reposetup/reposetup_%d{yyyy-MM-dd}.%i.html</fileNamePattern>
+
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+<!--         <encoder> -->
+<!--             <charset>UTF-8</charset> -->
+<!--             <pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern> -->
+<!--         </encoder> -->
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	      <layout class="ch.qos.logback.classic.html.HTMLLayout">
+	        <pattern>%relative%thread%mdc%level%logger%msg</pattern>
+	      </layout>
+	    </encoder>
+    </appender>
+
+	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+	    <appender-ref ref="FILE" />
+	  </appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.classic.AsyncAppender">
+	    <appender-ref ref="consoleAppender" />
+	  </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="ASYNC"/>
+    </root>
+</configuration>
