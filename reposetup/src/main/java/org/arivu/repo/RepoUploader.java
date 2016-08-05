@@ -43,7 +43,7 @@ public class RepoUploader {
 	private static final File ROOT_DIR = new File(".");
 	private static long THRESHOLD_LIMIT = 1*1024*1024L;
 	
-	private static String MAVEN_EXE = System.getProperty("mvn","/Users/parthipangounder/Downloads/apache-maven-3.3.9/bin/mvn");;
+	private static String MAVEN_EXE = System.getProperty("mvn","/Users//Downloads/apache-maven-3.3.9/bin/mvn");;
 	
 	private static String[] MODULES = {System.getProperty("download","download")};
 	private static String[] REPOS = {System.getProperty("module","common")};
