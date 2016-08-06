@@ -38,3 +38,28 @@ task install(dependsOn:build) << {
 		duplicatesStrategy = 'exclude'
 	} 
 }
+
+task createPom() << {
+	apply plugin: 'maven'
+    //description "Generates pom.xml"
+    
+    pom {
+        project {
+            groupId project.group.toString()
+            artifactId project.name
+            version project.version.toString()
+            packaging 'jar'
+        }
+    }.withXml {
+        def dependenciesNode = asNode().appendNode('dependencies')
+
+        configurations.compile.allDependencies.each { dependency ->
+            def dependencyNode = dependenciesNode.appendNode('dependency')
+            dependencyNode.appendNode('groupId', dependency.group)
+            dependencyNode.appendNode('artifactId', dependency.name)
+            dependencyNode.appendNode('version', dependency.version)
+        }
+    }.writeTo("$buildDir/libs/"+project.name+"-"+project.version+".xml")
+}
+
+build.finalizedBy 'createPom'
