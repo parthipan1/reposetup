@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * @author Parthipan
+ * @author P
  *
  */
 public class POMGenerator {
